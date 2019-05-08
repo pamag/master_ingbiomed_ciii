@@ -1,0 +1,88 @@
+---
+title: "R Notebook"
+output: html_notebook
+author: Pablo Marin-Garcia
+date: 2018-03-22
+---
+
+Find out what is behind the data
+
+# first with base plot
+
+data at https://raw.githubusercontent.com/mgviz/training_datasets/master/EDA_datasets/mydata_peineta.csv
+
+## get data
+
+```{r get data}
+
+if (!file.exists("./data")){dir.create("./data")}
+fileUrl = "https://data.baltimorecity.gov/api/views/dz54-2aru/rows.csv?accessType=DOWNLOAD"
+download.file(fileUrl, destfile = "./data/camera_data.csv", method = "curl")
+cameraData = read.csv("./data/camera_data.csv", header=FALSE)
+names(cameraData)
+```
+
+```{r}
+peineta_url = "https://raw.githubusercontent.com/mgviz/training_datasets/master/EDA_datasets/mydata_peineta.csv"
+
+fileUrl <- peineta_url
+
+download.file(fileUrl, destfile = "./data/peineta.csv", method = "curl")
+peinetaData = read.csv("./data/peineta.csv", header=FALSE)
+names(peinetaData)
+```
+
+```{r}
+peineta <- read.csv("datasets/mydata_peineta.csv", header = FALSE)
+
+names(peineta) <- c("x", "y")
+head(peineta)
+
+
+```
+```{r}
+summary(peineta) 
+
+
+
+```
+
+regresion
+
+```{r}
+plot(peineta, xlim=c(20,50))
+fit <- lm(peineta$y~peineta$x)
+
+fit
+
+# task: find and document what abline does and what the pareameters mean
+abline(fit$coeff, lwd=2)
+
+```
+
+## Veamos realmente que hay detras de los datos:
+
+```{r}
+
+plot(peineta, xlim=c(1,100), xlab="no te lo creas", ylab="si no lo ploteas de mil maneras", main="Plo-te ha engañado")
+fit <- lm(peineta$y~peineta$x)
+
+fit
+
+# task: find and document what abline does and what the pareameters mean
+abline(fit$coeff, lwd=2)
+
+```
+
+# now with ggplot
+
+```{r}
+ggplot(data=peineta, aes(x, y))+geom_point()+labs(y="la importancia")+labs(x=" de mirar los plots")+labs(title="Jugando con los datos")
+
+```
+
+```{r}
+ggplot(data=peineta, aes(x, y))+geom_point()+labs(y="la importancia")+labs(x=" de mirar los plots")+labs(title="Jugando con los datos") + xlim(10,100)
+
+```
+

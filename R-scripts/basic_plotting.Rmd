@@ -1,0 +1,192 @@
+---
+title: "datascience-tidy"
+author: "Pablo Marin"
+date: "2018-05-23"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r cars}
+str(cars)
+summary(cars)
+```
+
+# Lets see what means this data
+lets plot the data to see it.
+```{r}
+
+plot(cars$speed, cars$dist)
+
+```
+
+## Find the regresion line
+
+```{r}
+
+plot(cars$speed, cars$dist)
+fit <- lm(cars$dist~cars$speed)
+
+# task: find and document what abline does and what the pareameters mean
+abline(fit$coeff, lwd=2)
+
+```
+
+## Add text
+
+```{r}
+plot.new()
+plot(cars$speed, cars$dist)
+
+# calculate lineal model
+fit <- lm(cars$dist~cars$speed)
+
+# plot the line
+abline(fit$coeff, lwd=2)
+
+# get the numeric value
+b = round(fit$coefficients,4)
+text(5, 100, paste("y =", b[1], "+", b[2], "x"), adj=c(0,0.5))
+
+rho <- round(cor(cars$speed,cars$dist),4)
+text(5, 80,expression(paste(rho," = 0.8567")),adj=c(0,0.5))
+
+
+
+```
+
+## Add title fix axe names and Y limits to have intercept
+
+
+```{r}
+plot.new()
+
+# calculate lineal model
+fit <- lm(cars$dist~cars$speed)
+intercept = fit$coeff[1]
+
+plot(cars$speed, cars$dist, main="dist vs speed", xlab = "speed", ylab="dist", ylim=c(intercept,140))
+
+# plot the line
+abline(fit$coeff, lwd=2)
+
+# get the numeric value
+b = round(fit$coefficients,4)
+text(5, 100, paste("y =", b[1], "+", b[2], "x"), adj=c(0,0.5))
+
+rho <- round(cor(cars$speed,cars$dist),4)
+text(5, 80,expression(paste(rho," = 0.8567")),adj=c(0,0.5))
+
+```
+
+
+
+## Paired
+
+
+```{r}
+set.seed(12201970)
+before <- runif(6, 5, 8)
+after <- rnorm(6, before*1.05, 2)
+z <- rep(c(0,1), rep(6,2))
+#mypar(1,2)
+```
+
+```{r}
+
+boxplot(before,after,names=c("Before","After"),ylab="Response")
+```
+
+Seems That theres is an effect between before and after. What do you think?
+
+Lets see how the pairs has been change:
+
+```{r}
+
+plot(z, c(before, after),
+     xaxt="n", ylab="Response",
+     xlab="", xlim=c(-0.5, 1.5))
+axis(side=1, at=c(0,1), c("Before","After"))
+segments(rep(0,6), before, rep(1,6), after, col=1)
+
+```
+
+## Paired plot summary
+
+Could you comment what is the difference of plotting paired or not the data? Are you going to draw the same conclusions
+
+
+# Bpmus: including Plots with no code
+
+You can also embed plots, for example:
+
+```{r pressure, echo=FALSE}
+plot(pressure)
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+
+# Lets calculate the mean of "pressure"
+
+```{r}
+
+pm = mean(pressure)
+
+```
+
+Hummm, we have an error. It is pressure really what we think it is?
+
+It is a vector?
+
+lets see
+
+
+```{r}
+
+str(pressure)
+
+```
+
+NOP! it is a dataframe. It has two columns, temperature and pressure
+
+```{r}
+
+summary(pressure)
+
+```
+Question: look at the mean and median of pressure, what do you see?
+
+```{r}
+
+boxplot(pressure)
+
+```
+From the boxplot we see that is not a normal distribution. Is log, if we want to make a regression probably we would like to convert to lineal
+
+```{r}
+boxplot(log(pressure$pressure))
+
+```
+
+```{r}
+plot(pressure$temperature, log(pressure$pressure, base = 2))
+```
+
+## Task: 
+
+make to plots: 
+* plot the regression line for the pressure$pressure raw 
+* plot the regression line for the transformed pressure
+
+make a variable logpress that holds log(pressure$pressure)
+

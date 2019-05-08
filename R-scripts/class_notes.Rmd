@@ -1,0 +1,109 @@
+---
+title: "Data Science Productivity Tools"
+author: "Pablo Marin-Garcia"
+date: "15 April 2019"
+output:
+  html_document:
+    df_print: paged
+---
+
+# Intro
+
+## Aim of the class
+
+You are going to practice to work in a group, sharing code and learning how to document it properly.
+
+The focus is in HOW do you do things. It is not about what you accomplish or the results. A data scientist need to have a good work discipline and a clear understanding how to deal with data, document the data preparation and the analysis. You need to have a diary of your success but also of the errors and how you reach your final goal. You need to know kow your analysis have evolved (accountaility).
+
+### How are we going to proceed?:
+
+- first go to the class navigator gcalc "alumni_list" in the lectures root. Add your name and gdoc link of the group
+
+- Write your name in the index you has been given at the beginning of the class
+
+| index	|group|	name|	git_hub_account| 	ssh_public_key|	gdoc_link|
+|--|--|--|--|--|--|
+|  |  |  |  | |  |
+
+Each question will be created in section of a gdoc and pasted the link here.
+
+(Intro to gdoc) -> 
+
+# Sections
+
+1. Literate programming
+  * Version Control
+  * How to organize your work
+  * Documentation
+  * Agile development
+    * Googledocs
+    * Markdown
+2. Tidy and Cleaning Data
+  * Json
+  * excel
+  * tables
+    * long vs wide
+    * flags
+    * 
+  * missing
+    * censored data
+3. EDA (Exploratory Data Analysis)
+  * Don't trust summary statistics always plot your data quick and dirty
+  * Dynamite plots are BAD!
+
+
+# team work
+
+Current bioingeniering is a multidisciplinary team work. You need to explore and do extensive brain storming with diferent people from different fields. Note taking and summarizing are essential skills.
+
+How are you going to organize yourself... or your te?. 
+
+In order to efficiently work in a team you need several colaboration tools set up first.
+
+For this session you would need a google.com account, an github.com account and a trello.com account.
+
+** TASKS **
+
+- [ ] set a google.com account. If you have an android phone or gmail account you are done.
+- [ ] make a github.com account. See xxxx
+- [ ] make a trello.com account. see xxxx
+
+
+
+
+# Literate Programming
+
+## First thing first: How you organize your work.
+
+## How do you do the work
+
+before going there let's see how mature you are 
+
++ Make a script that plot a line 45º for x values 1 to 10 
+  - You have 3 minutos for thinking about this in your group.
+  
+  
+
+
+### try 1  
+```{R}
+plot(1:10, 1:10)
+```
+
+## Can we do it better?
+
+## yes we can!
+
+## 
+
+## GIT
+
+Git is version control system that has a very useful property: it is a **Descentralized** version control. And this is very very important property that you will appreciate a lot when you start a work in a group. I will explain it in a minute.
+
+
+
+Practice with swirl:
+
+# EDA
+
+# Tidy and Cleeaning Data

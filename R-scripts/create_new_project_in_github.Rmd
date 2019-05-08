@@ -1,0 +1,30 @@
+---
+title: "github SOP"
+output: html_notebook
+author: "Pablo Marin-Garcia"
+date: "15 April 2019"
+---
+
+SOP ==  Standar operation procedure => PNT == Procedimiento normalizado de trabajo
+
+git links
+
+* https://guides.github.com/activities/hello-world/
+* https://medium.freecodecamp.org/learn-the-basics-of-git-in-under-10-minutes-da548267cc91
+
+- [ ] create an account in github is you don't have any (github.com)
+- [ ] create a new private prject
+  - add a readme
+  - add and .ignore file
+  - add a licence
+- [ ] before cloning the project in your computer upload yout ssh private key
+  - this is for passworless connection
+  - if you don't have a rsa key create one (see slides)
+- [ ] clone the project
+- [ ] create one script in R that creates a 45º line where the x goes from 0 to 10
+- [ ] add the script
+- [ ] commit the script
+- [ ] upload the changes to the repository
+
+* [q] what do the .gitignore file?
+

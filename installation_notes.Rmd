@@ -1,0 +1,30 @@
+---
+title: "R Notebook"
+output: html_notebook
+author: Pablo Marin-Garcia
+date: 2019-05-06
+---
+
+```{R}
+install.packages("dslabs")
+```
+
+```{r}
+install.packages("rngtools")
+
+if (!requireNamespace("BiocManager", quietly = TRUE))
+    install.packages("BiocManager")
+BiocManager::install("minfi", version = "3.8")
+BiocManager::install(c("minfiData", "sva"))
+```
+
+
+```{r}
+install.packages("swirl")
+library("swirl")
+install_from_swirl("Exploratory Data Analysis")
+install_from_swirl("Getting and Cleaning Data")
+swirl()
+
+
+```
